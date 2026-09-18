@@ -1,6 +1,6 @@
-# DESIGN.md — AgriGen Matcher Landing Page
+# DESIGN.md — Terravect Landing Page
 
-**Produkt:** AgriGen Matcher (Ein Produkt von Adaptive AI Solutions)
+**Produkt:** Terravect (vormals „AgriGen Matcher"; Ein Produkt von Adaptive AI Solutions)
 **Zweck:** One-Page-Landingpage mit Live-Demo des Kernel-Matchings im Browser
 **Zielgruppe:** Pflanzenzüchter, Saatgut-Beratung, Agrar-Forschung (DACH)
 **Stil-Referenz:** Corporate Agriscience (Anmutung großer Agri-Science-Marken wie Bayer Crop Science — Anmutung ONLY, keine Marken-Elemente, -Farben im Verbund oder -Wortbilder)

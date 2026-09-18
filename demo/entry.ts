@@ -1,5 +1,5 @@
 /**
- * Browser-Entry für die AgriGen-Matcher-Live-Demo.
+ * Browser-Entry für die Terravect-Live-Demo.
  *
  * Importiert den UNVERÄNDERTEN Kernel-Code aus dem öffentlichen
  * agrigen-matcher-Repository (mvp/) und den EURISCO-150-Beispielkatalog.
@@ -58,4 +58,4 @@ function run(genus: string, requirements: FarmingRequirements, limit = 5): DemoM
 
 const genera = [...recordsByGenus.keys()].sort()
 
-;(window as unknown as { AGRIGEN: unknown }).AGRIGEN = { run, genera, count: typedRecords.length }
+;(window as unknown as { TERRAVECT: unknown }).TERRAVECT = { run, genera, count: typedRecords.length }

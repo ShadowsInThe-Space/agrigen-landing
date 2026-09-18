@@ -1,4 +1,4 @@
-# AgriGen Matcher — Landing Page
+# Terravect — Landing Page
 
 One-Page-Produktseite mit **Live-Demo des echten Kernels im Browser**.
 Ein Produkt von **Adaptive AI Solutions**. Stil: Corporate Agriscience
@@ -34,16 +34,16 @@ python3 -m http.server 8811
 
 ## Deployment (geplant)
 
-Statisch auf **agrigenmatch.de** (Cloudflare Pages oder CF-DNS + statisches Hosting).
+Statisch auf **terravect.de** (Cloudflare Pages oder CF-DNS + statisches Hosting).
 DNS-frei laut Schnellcheck vom 18.09. — Kauf steht noch aus (Sonny).
 
 ## Vor Livegang erledigen (Checkliste)
 
-- [ ] Domain agrigenmatch.de kaufen (Cloudflare Registrar; falls .de dort nicht
+- [ ] Domain terravect.de kaufen (Cloudflare Registrar; falls .de dort nicht
       buchbar: beliebiger Registrar + Zone im bestehenden CF-Konto anbinden)
 - [ ] Impressum vervollständigen (Anschrift) + Datenschutzerklärung-Seite
 - [ ] Fonts self-hosten (aktuell Google Fonts CDN — DSGVO-freundlicher lokal)
-- [ ] DPMA-Wortmarken-Check „AgriGen"/„AgriGen Matcher" vor Vermarktungsstart
+- [ ] DPMA-Tiefencheck „Terravect" vor Vermarktungsstart (Web-Erstraster 18.09.: .de/.com frei, keine sichtbaren Kollisionen)
 - [ ] Kernel-Stand nach PR #2 (AGPL) rebasen — Quellcode-Link zeigt dann auf
       die AGPL-Version
 

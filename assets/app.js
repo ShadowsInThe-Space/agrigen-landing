@@ -1,5 +1,5 @@
-/* AgriGen Matcher — UI-Logik für die Live-Demo.
-   Voraussetzung: assets/demo.js (Kernel-Bundle) lädt vor und setzt window.AGRIGEN. */
+/* Terravect — UI-Logik für die Live-Demo.
+   Voraussetzung: assets/demo.js (Kernel-Bundle) lädt vor und setzt window.TERRAVECT. */
 (function () {
   'use strict'
 
@@ -7,7 +7,7 @@
   var results = document.getElementById('demo-results')
   var runButton = document.getElementById('demo-run')
 
-  if (!form || !results || !window.AGRIGEN) return
+  if (!form || !results || !window.TERRAVECT) return
 
   form.addEventListener('submit', function (event) {
     event.preventDefault()
@@ -39,7 +39,7 @@
     setTimeout(function () {
       var matches
       try {
-        matches = window.AGRIGEN.run(genus, requirements, 5)
+        matches = window.TERRAVECT.run(genus, requirements, 5)
       } catch (error) {
         results.innerHTML = ''
         var failure = document.createElement('p')
