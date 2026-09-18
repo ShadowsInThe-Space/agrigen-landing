@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriGen Matcher — Wissenschaftliches Matching für die richtige Sortenwahl</title>
+  <meta name="description" content="Der AgriGen Matcher findet aus Hunderten Accessions die passende Sorte für Ihre Anbaubedingungen — mit einem mathematisch fundierten Kernel-Verfahren (Hilbert-Raum). Live-Demo im Browser. Ein Produkt von Adaptive AI Solutions.">
+  <meta property="og:title" content="AgriGen Matcher — Das richtige Saatgut. Wissenschaftlich gefunden.">
+  <meta property="og:description" content="Kernel-basiertes Sorten-Matching mit nachvollziehbaren Scores. Live-Demo mit 150 EURISCO-Accessions direkt im Browser.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230E3B2E'/><path d='M16 5 C 10 12, 10 20, 16 27 C 22 20, 22 12, 16 5 Z' fill='none' stroke='%232F9E44' stroke-width='2'/><path d='M16 9 L 12 13 M16 13 L 12 17 M16 17 L 12 21 M16 9 L 20 13 M16 13 L 20 17 M16 17 L 20 21' stroke='%23C99A2C' stroke-width='1.4'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+  <!-- ══════════ HEADER ══════════ -->
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="AgriGen Matcher — Start">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="#0E3B2E"/>
+          <path d="M16 5 C 10 12, 10 20, 16 27 C 22 20, 22 12, 16 5 Z" fill="none" stroke="#2F9E44" stroke-width="2"/>
+          <path d="M16 9 L 12 13 M16 13 L 12 17 M16 17 L 12 21 M16 9 L 20 13 M16 13 L 20 17 M16 17 L 20 21" stroke="#C99A2C" stroke-width="1.4"/>
+        </svg>
+        <span class="brand-name">AgriGen&thinsp;<em>Matcher</em></span>
+      </a>
+      <nav class="site-nav" aria-label="Hauptnavigation">
+        <a href="#problem">Herausforderung</a>
+        <a href="#verfahren">Verfahren</a>
+        <a href="#demo">Live-Demo</a>
+        <a href="#zahlen">Belege</a>
+      </nav>
+      <a class="btn btn-primary btn-small" href="#demo">Demo starten</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ══════════ HERO ══════════ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <svg class="hero-fieldlines" viewBox="0 0 1440 720" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <path d="M0 640 C 240 560, 480 680, 720 600 C 960 520, 1200 660, 1440 580" fill="none" stroke="#F7F5EF" stroke-opacity="0.06" stroke-width="1.5"/>
+        <path d="M0 560 C 240 480, 480 600, 720 520 C 960 440, 1200 580, 1440 500" fill="none" stroke="#F7F5EF" stroke-opacity="0.06" stroke-width="1.5"/>
+        <path d="M0 480 C 240 400, 480 520, 720 440 C 960 360, 1200 500, 1440 420" fill="none" stroke="#F7F5EF" stroke-opacity="0.06" stroke-width="1.5"/>
+        <path d="M0 400 C 240 320, 480 440, 720 360 C 960 280, 1200 420, 1440 340" fill="none" stroke="#F7F5EF" stroke-opacity="0.06" stroke-width="1.5"/>
+        <path d="M0 320 C 240 240, 480 360, 720 280 C 960 200, 1200 340, 1440 260" fill="none" stroke="#F7F5EF" stroke-opacity="0.05" stroke-width="1.5"/>
+        <path d="M0 240 C 240 160, 480 280, 720 200 C 960 120, 1200 260, 1440 180" fill="none" stroke="#F7F5EF" stroke-opacity="0.05" stroke-width="1.5"/>
+      </svg>
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="micro-label reveal">Adaptive AI Solutions präsentiert</p>
+          <h1 class="hero-title reveal" id="hero-title">Das richtige Saatgut.<br><em>Wissenschaftlich</em> gefunden.</h1>
+          <p class="hero-sub reveal">Der AgriGen Matcher vergleicht Ihre Anbaubedingungen mit dem kompletten Eigenschaftsprofil jeder Sorte — durch ein mathematisch fundiertes Kernel-Verfahren im Hilbert-Raum. Nachvollziehbar begründet, ohne erfundene Daten.</p>
+          <div class="hero-actions reveal">
+            <a class="btn btn-primary" href="#demo">Live-Demo starten</a>
+            <a class="btn btn-ghost-dark" href="https://github.com/ShadowsInThe-Space/agrigen-matcher" target="_blank" rel="noopener">Kernel-Code auf GitHub</a>
+          </div>
+          <p class="hero-note reveal">Demo mit 150 EURISCO-Accessions · läuft vollständig in Ihrem Browser</p>
+        </div>
+        <aside class="hero-panel reveal" aria-label="Beispiel-Ergebnis des Matchers">
+          <div class="panel-head">
+            <span class="panel-dot"></span>
+            <span class="panel-title">Weizen · trocken, kurze Saison</span>
+          </div>
+          <ol class="panel-rows">
+            <li class="panel-row">
+              <span class="row-rank">1</span>
+              <div class="row-main">
+                <span class="row-name">EUR-116</span>
+                <span class="row-cultivar">Wintergold</span>
+                <div class="row-bar"><span style="width: 96%"></span></div>
+              </div>
+              <span class="row-score">0.962</span>
+            </li>
+            <li class="panel-row">
+              <span class="row-rank">2</span>
+              <div class="row-main">
+                <span class="row-name">EUR-102</span>
+                <span class="row-cultivar">Feldherren</span>
+                <div class="row-bar"><span style="width: 88%"></span></div>
+              </div>
+              <span class="row-score">0.881</span>
+            </li>
+            <li class="panel-row">
+              <span class="row-rank">3</span>
+              <div class="row-main">
+                <span class="row-name">EUR-066</span>
+                <span class="row-cultivar">Nordstern</span>
+                <div class="row-bar"><span style="width: 81%"></span></div>
+              </div>
+              <span class="row-score">0.809</span>
+            </li>
+          </ol>
+          <p class="panel-foot">Top-3 · 20 Accessions · Score 0–1</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ══════════ 01 · HERAUSFORDERUNG ══════════ -->
+    <section class="section" id="problem" aria-labelledby="problem-title">
+      <div class="shell">
+        <div class="section-mark reveal">
+          <span class="micro-label">Schritt 01 — Herausforderung</span>
+          <h2 id="problem-title">Die Sortenwahl wird zur Risikorechnung.</h2>
+        </div>
+        <div class="card-trio">
+          <article class="card reveal">
+            <h3>Klimawandel verkürzt Erfahrungswissen</h3>
+            <p>Dürreperioden, neue Schaderreger, kippende Vegetationsfenster. Was über Jahrzehnte auf dem Feld gelernt wurde, verliert jährlich an Gültigkeit — die Sortenprüfung muss systematischer werden.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Der Katalog ist unüberschaubar</h3>
+            <p>Europäische Genbanken wie EURISCO führen zehntausende Accessions mit Dutzenden Eigenschaften. Niemand kann diese Matrizen noch im Kopf vergleichen — Tabellen erschöpfen bei drei Kriterien.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Empfehlungen bleiben unbegründet</h3>
+            <p>Wer eine Sorte empfiehlt, trägt Verantwortung. Fehlende Messwerte werden dabei oft stillschweigend aufgefüllt — genau das macht Empfehlungen angreifbar und Entscheidungen teuer.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ 02 · VERFAHREN ══════════ -->
+    <section class="section section-tinted" id="verfahren" aria-labelledby="verfahren-title">
+      <div class="shell">
+        <div class="section-mark reveal">
+          <span class="micro-label">Schritt 02 — Verfahren</span>
+          <h2 id="verfahren-title">Ein Kernel, der Relevanz misst — statt zu raten.</h2>
+        </div>
+        <div class="process">
+          <div class="process-step reveal">
+            <span class="step-num">I</span>
+            <h3>Beobachtungen sammeln</h3>
+            <p>Jede Sorte wird zum Eigenschaftsvektor: Trocken- und Hitzetoleranz, Wasser- und Stickstoffbedarf, Ertragspotenzial, Anbauzeit. Fehlende Messwerte bleiben <strong>unbeobachtet</strong> — der Marker wird nie durch Schätzwerte gefüllt.</p>
+          </div>
+          <div class="process-step reveal">
+            <span class="step-num">II</span>
+            <h3>Im Hilbert-Raum vergleichen</h3>
+            <p>Anforderungen und Sorten leben im selben Vektorraum. Ein positiv definiter Kernel (RBF mit Median-Heuristik für γ) misst die Ähnlichkeit — mit Satisficing-Logik: Übererfüllung kostet nichts, Fehlbetrag wird bestraft.</p>
+          </div>
+          <div class="process-step reveal">
+            <span class="step-num">III</span>
+            <h3>Begründet ranken</h3>
+            <p>Das Ergebnis ist keine Blackbox: Jeder Score ist zerlegbar in die aktiven Anforderungsdimensionen. Auf Echtdaten erreicht das Verfahren <strong>100 % Identity-Retrieval</strong> — jede Sorte findet unter ihrem Anforderungsprofil sich selbst auf Rang 1.</p>
+          </div>
+        </div>
+        <aside class="honesty-note reveal">
+          <p><strong>Wissenschaftliche Ehrlichkeit als Feature:</strong> Der Kernel ist per Konstruktion symmetrisch und positiv semidefinit — das ist beweisbar und im <a href="https://github.com/ShadowsInThe-Space/agrigen-matcher" target="_blank" rel="noopener">Selbsttest des Repos</a> gegen Echtdaten gepinnt. Sorten ohne gemeinsame Beobachtungsdimensionen erhalten keinen Score, keinen Mittelwert.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ══════════ 03 · LIVE-DEMO ══════════ -->
+    <section class="section" id="demo" aria-labelledby="demo-title">
+      <div class="shell">
+        <div class="section-mark reveal">
+          <span class="micro-label">Schritt 03 — Live-Demo</span>
+          <h2 id="demo-title">Probieren Sie den Matcher aus.</h2>
+          <p class="section-sub">Dies ist kein Mockup: Unten läuft der unveränderte Kernel-Code des AgriGen Matchers — gebündelt aus dem öffentlichen Repository — mit 150 Accessions des EURISCO-Beispielkatalogs, direkt in Ihrem Browser. Keine Daten verlassen Ihr Gerät.</p>
+        </div>
+
+        <div class="instrument reveal" id="instrument">
+          <div class="instrument-head">
+            <span class="panel-dot"></span>
+            <span class="micro-label">Anbau-Profil festlegen</span>
+          </div>
+          <form class="instrument-controls" id="demo-form" autocomplete="off">
+            <div class="control">
+              <label class="control-label" for="ctrl-crop">Kultur</label>
+              <select id="ctrl-crop" class="control-select" required>
+                <option value="Triticum" selected>Weizen (Triticum) · 20</option>
+                <option value="Hordeum">Gerste (Hordeum) · 10</option>
+                <option value="Secale">Roggen (Secale) · 16</option>
+                <option value="Avena">Hafer (Avena) · 9</option>
+                <option value="Zea">Mais (Zea) · 8</option>
+                <option value="Sorghum">Sorghum · 15</option>
+                <option value="Beta">Zuckerrübe (Beta) · 23</option>
+                <option value="Solanum">Kartoffel (Solanum) · 8</option>
+                <option value="Glycine">Sojabohne (Glycine) · 10</option>
+                <option value="Phaseolus">Bohne (Phaseolus) · 13</option>
+                <option value="Helianthus">Sonnenblume (Helianthus) · 8</option>
+                <option value="Vicia">Ackerbohne (Vicia) · 10</option>
+              </select>
+            </div>
+            <div class="control">
+              <label class="control-label" for="ctrl-drought">Trockentoleranz</label>
+              <select id="ctrl-drought" class="control-select">
+                <option value="">— keine Priorität —</option>
+                <option value="extreme">extrem erforderlich</option>
+                <option value="high">hoch</option>
+                <option value="moderate">moderat</option>
+              </select>
+            </div>
+            <div class="control">
+              <label class="control-label" for="ctrl-heat">Hitzetoleranz</label>
+              <select id="ctrl-heat" class="control-select">
+                <option value="">— keine Priorität —</option>
+                <option value="high">hoch</option>
+                <option value="moderate">moderat</option>
+              </select>
+            </div>
+            <div class="control">
+              <label class="control-label" for="ctrl-season">Saisonlänge</label>
+              <select id="ctrl-season" class="control-select">
+                <option value="">— egal —</option>
+                <option value="short">kurz (Ernte früh)</option>
+                <option value="medium">mittel</option>
+                <option value="long">lang</option>
+              </select>
+            </div>
+            <div class="control">
+              <label class="control-label" for="ctrl-water">Wasser verfügbar</label>
+              <select id="ctrl-water" class="control-select">
+                <option value="">— egal —</option>
+                <option value="low">knapp</option>
+                <option value="moderate">mittel</option>
+                <option value="high">reichlich</option>
+              </select>
+            </div>
+            <div class="control">
+              <label class="control-label" for="ctrl-yield">Ertragspriorität</label>
+              <select id="ctrl-yield" class="control-select">
+                <option value="">— egal —</option>
+                <option value="high">hoch</option>
+                <option value="medium">mittel</option>
+              </select>
+            </div>
+            <div class="control control-submit">
+              <button type="submit" class="btn btn-primary btn-block" id="demo-run">Passende Sorten finden</button>
+            </div>
+          </form>
+          <div class="instrument-results" id="demo-results" aria-live="polite">
+            <p class="results-empty">Wählen Sie Bedingungen und starten Sie die Abfrage — das Ergebnis erscheint hier.</p>
+          </div>
+        </div>
+        <p class="demo-note">Ranking jeweils innerhalb der gewählten Kultur · Satisficing-Score (1.0 = Anforderungsprofil erfüllt) · Normierung katalogrelativ</p>
+      </div>
+    </section>
+
+    <!-- ══════════ 04 · BELEGE ══════════ -->
+    <section class="section section-tinted" id="zahlen" aria-labelledby="zahlen-title">
+      <div class="shell">
+        <div class="section-mark reveal">
+          <span class="micro-label">Schritt 04 — Belege</span>
+          <h2 id="zahlen-title">Gemessen, nicht behauptet.</h2>
+        </div>
+        <div class="stats-band reveal">
+          <div class="stat">
+            <span class="stat-value" data-count="100" data-suffix="%">0%</span>
+            <span class="stat-label">Identity-Retrieval auf Echtdaten — jede Sorte steht unter ihrem eigenen Anforderungsprofil auf Rang 1</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" data-count="452">0</span>
+            <span class="stat-label">BSA-Sorten über 13 Fruchtarten im Union-Katalog des Selbsttests</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" data-count="150">0</span>
+            <span class="stat-label">EURISCO-Accessions in dieser Browser-Demo — mit dem unveränderten Kernel</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">PSD</span>
+            <span class="stat-label">Positiv semidefinit per Konstruktion — symmetrisch, beweisbar, ohne Probenholt-Lücken</span>
+          </div>
+        </div>
+        <div class="provenance reveal">
+          <h3>Provenanz</h3>
+          <p>Der AgriGen Matcher ist als Beitrag zur KI-Biennale 2026 eingereicht (Verleihung 18.11.2026, Zollverein Essen). Der vollständige Kernel-Code, der Selbsttest mit den gepinnten Deckelwerten und die Datengrundlage stehen unter MIT-Lizenz im öffentlichen Repository: <a href="https://github.com/ShadowsInThe-Space/agrigen-matcher" target="_blank" rel="noopener">github.com/ShadowsInThe-Space/agrigen-matcher</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ CTA ══════════ -->
+    <section class="cta" aria-labelledby="cta-title">
+      <div class="shell cta-inner reveal">
+        <div>
+          <h2 id="cta-title">Interesse an einer Pilotierung mit Ihren Daten?</h2>
+          <p>Wir schließen den Matcher an Ihre Sorten- und Versuchsdaten an — von der Genbank-Liste bis zum Betriebskatalog.</p>
+        </div>
+        <a class="btn btn-cta" href="mailto:hallo@adaptive-ai-solutions.de">Adaptive AI Solutions kontaktieren</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div class="footer-col">
+        <span class="footer-brand">AgriGen Matcher</span>
+        <p class="footer-muted">Kernel-basiertes Sorten-Matching für klimaresiliente Entscheidungen in Pflanzenbau und Züchtung.</p>
+      </div>
+      <div class="footer-col">
+        <span class="micro-label micro-label-dark">Ein Produkt von</span>
+        <p class="footer-strong">Adaptive AI Solutions</p>
+        <a class="footer-link" href="https://adaptive-ai-solutions.de" target="_blank" rel="noopener">adaptive-ai-solutions.de</a>
+      </div>
+      <div class="footer-col">
+        <span class="micro-label micro-label-dark">Rechtliches &amp; Code</span>
+        <a class="footer-link" href="#impressum">Impressum</a>
+        <a class="footer-link" href="https://github.com/ShadowsInThe-Space/agrigen-matcher" target="_blank" rel="noopener">GitHub (MIT)</a>
+      </div>
+    </div>
+    <div class="shell footer-legal" id="impressum">
+      <p><strong>Impressum</strong> (Angaben vor Veröffentlichung vervollständigen): Adaptive AI Solutions · Inhaber: Marc-Dennis Haberland · Anschrift: [Straße, PLZ Ort] · Kontakt: hallo@adaptive-ai-solutions.de. <strong>Datenschutz:</strong> Diese Seite setzt keine Cookies und überträgt keine Formulardaten; die Demo verarbeitet Daten ausschließlich lokal im Browser. Vollständige Datenschutzerklärung folgt vor dem Livegang. <strong>Lizenz:</strong> Demo-Code (Kernel-Bundle) unter GNU AGPL-3.0-or-later — <a href="https://github.com/ShadowsInThe-Space/agrigen-matcher" target="_blank" rel="noopener" style="color:inherit">Quelle auf GitHub</a>; kommerzielle Lizenz ohne Copyleft: hallo@adaptive-ai-solutions.de.</p>
+      <p class="footer-copy">© 2026 Adaptive AI Solutions · Demo-Daten: EURISCO-Beispielkatalog · Design &amp; Umsetzung: Adaptive AI Solutions</p>
+    </div>
+  </footer>
+
+  <script src="assets/demo.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
